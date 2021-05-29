@@ -1,0 +1,85 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="Ingrid (generated)" id="1622257938630-1">
+        <createTable tableName="category">
+            <column autoIncrement="true" name="idCategory" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Category" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257938630-2">
+        <createTable tableName="product">
+            <column autoIncrement="true" name="idProduct" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="characteristic" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Status" type="BIT(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Stock" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Supplier_idSupplier" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Category_idCategory" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257938630-3">
+        <createTable tableName="supplier">
+            <column autoIncrement="true" name="idSupplier" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="Name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Adrees" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257938630-4">
+        <createIndex indexName="fk_Product_Category1" tableName="product">
+            <column name="Category_idCategory"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257938630-5">
+        <createIndex indexName="fk_Product_Supplier" tableName="product">
+            <column name="Supplier_idSupplier"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257938630-6">
+        <addForeignKeyConstraint baseColumnNames="Category_idCategory" baseTableName="product" constraintName="fk_Product_Category1" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="idCategory" referencedTableName="category" validate="true"/>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257938630-7">
+        <addForeignKeyConstraint baseColumnNames="Supplier_idSupplier" baseTableName="product" constraintName="fk_Product_Supplier" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="idSupplier" referencedTableName="supplier" validate="true"/>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257938630-8">
+        <dropForeignKeyConstraint baseTableName="alumno" constraintName="FK_alumno_facultad"/>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257938630-9">
+        <dropTable tableName="alumno"/>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257938630-10">
+        <dropTable tableName="facultad"/>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257938630-11">
+        <dropTable tableName="fail"/>
+    </changeSet>
+</databaseChangeLog>

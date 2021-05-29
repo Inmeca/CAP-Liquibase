@@ -1,0 +1,53 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="Ingrid (generated)" id="1622257724059-1">
+        <createTable tableName="alumno">
+            <column name="matricula" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="nombre" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="paterno" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="materno" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telefono" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="facultad_code" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257724059-2">
+        <createTable tableName="facultad">
+            <column autoIncrement="true" name="code" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="nombre" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257724059-3">
+        <createTable tableName="fail">
+            <column name="code" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="descripcion" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257724059-4">
+        <createIndex indexName="FK_alumno_facultad" tableName="alumno">
+            <column name="facultad_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Ingrid (generated)" id="1622257724059-5">
+        <addForeignKeyConstraint baseColumnNames="facultad_code" baseTableName="alumno" constraintName="FK_alumno_facultad" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="code" referencedTableName="facultad" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

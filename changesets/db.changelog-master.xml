@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog
+xmlns="http://www.liquibase.org/xml/ns/dbchangelog"  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <include file="changesets/db.changelog-createFirstTable.xml"/> 
+    <include file="changesets/db.changelog-createSecondTable.xml"/> 
+    <include file="changesets/db.changelog-rollback.xml"/> 
+    <include file="changesets/db.changelog-constraint.xml"/> 
+    <include file="changesets/db.changelog-inserts.xml"/>
+
+    <!-- Generar changelog apartir de una base de datos existente -->
+    <!--
+    liquibase ??changeLogFile=changesets/db.changelog-changelog-1.xml generateChangeLog
+    -->  
+
+    <!-- Generar changelog de diferencias de las bases de datos utilizadas -->
+    <!--
+    liquibase ??changeLogFile=changesets/db.changelog-changelog-2.xml diffChangeLog
+    -->
+    
+</databaseChangeLog>

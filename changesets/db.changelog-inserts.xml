@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"> 
+  
+    
+    <changeSet author="ingrid_mendoza_cabrera" id="105">
+
+        <insert tableName="facultad">
+            <column name="code" value="101"/>
+            <column name="nombre" value="Facultad de Ciencias de la Computacion"/>
+        </insert>
+
+        <insert tableName="facultad">
+            <column name="code" value="102"/>
+            <column name="nombre" value="Facultad Fisico Matematico"/>
+        </insert>
+
+        <insert tableName="alumno">
+            <column name="matricula" value="201521854"/>
+            <column name="nombre" value="Ingrid"/>
+            <column name="paterno" value="Mendoza"/>
+            <column name="materno" value="Cabrera"/>
+            <column name="telefono" value="2481929203"/>
+            <column name="facultad_code" value="101"/>
+        </insert>
+
+        <insert tableName="alumno">
+            <column name="matricula" value="201772192"/>
+            <column name="nombre" value="Arleth"/>
+            <column name="paterno" value="Mendoza"/>
+            <column name="materno" value="Cabrera"/>
+            <column name="telefono" value="2481323690"/>
+            <column name="facultad_code" value="102"/>
+        </insert>
+
+        <insert tableName="alumno">
+            <column name="matricula" value="201581925"/>
+            <column name="nombre" value="Marco Antonio"/>
+            <column name="paterno" value="Cantero"/>
+            <column name="materno" value="Contreras"/>
+            <column name="telefono" value="2221872012"/>
+            <column name="facultad_code" value="101"/>
+        </insert>
+        
+    </changeSet>
+
+</databaseChangeLog> 

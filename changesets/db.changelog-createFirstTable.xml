@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"> 
+  
+    <changeSet author="ingrid_mendoza_cabrera" id="101">
+        <createTable tableName="alumno">
+
+            <column autoIncrement="false" name="matricula" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_alumno_matricula"/>
+            </column>
+            
+            <column name="nombre" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+
+            <column name="paterno" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+
+            <column name="materno" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+
+            <column name="telefono" type="VARCHAR(10)">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+
+            <column name="facultad_code" type="INT">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog> 
